@@ -2,11 +2,13 @@ import './App.css';
 import {useState} from "react";
 import { useEffect } from 'react';
 
+
 function App() {
 
     const [ville, setVille] = useState("");
     const [infoMeteo, setInfoMeteo] = useState([]);
     const [suggestion, setSuggestion] = useState("");
+    const [input, setinput] = useState("");
 
     useEffect(()=>
     {
@@ -27,7 +29,7 @@ function App() {
         fetch("https://izudztw6jk.execute-api.eu-west-1.amazonaws.com/Prod/weather/"+ville)
             .then((el) => el.json())
             .then((res) => setInfoMeteo(res))
-        
+
     },[ville]);
 
 
@@ -51,17 +53,28 @@ function App() {
                 setSuggestion("N'oubliez pas le parapluie");
                 break;
 
-                default:
+            default:
         }
     }
+
+    function Search()
+    {
+        fetch("https://izudztw6jk.execute-api.eu-west-1.amazonaws.com/Prod/weather/"+input)
+            .then((el) => el.json())
+            .then((res) => setInfoMeteo(res))
+            .finally()
+
+        SuggestionTenu()
+    }
+
 
     return (
         <div className="App">
 
-            <input type="text" placeholder='Rechercher'/>
-            <button onClick={SuggestionTenu}>recherche</button>
+            <input type="text" placeholder='Rechercher' onChange={(e)=>setinput(e.target.value)}/>
+            <button onClick={(e) => Search()}>recherche</button>
             
-            <div className='ville'>{ville}</div>
+            <div className='ville'>{infoMeteo.city} - France</div>
             
             <div>
                 <div className='temperature'>{infoMeteo.temperature}°C</div>
