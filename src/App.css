@@ -10,3 +10,29 @@ ul {
   background-color: transparent;
   border: 0;
 }
+
+.ville{
+  color: rgb(59, 105, 189);
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.temperature{
+  color: rgb(59, 105, 189);
+  font-size: 60px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.condition{
+  color: rgb(59, 105, 189);
+  font-size: 40px;
+  font-family: sans-serif;
+}
+
+.suggestion{
+  color: rgb(59, 105, 189);
+  font-size: 30px;
+  font-family: sans-serif;
+}
