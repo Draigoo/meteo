@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.delete{
+  background-color: transparent;
+  border: 0;
+}
